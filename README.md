@@ -1,3 +1,5 @@
+This repo is forked from [here](https://git.marlam.de/gitweb/?p=camsim.git).
+
 # CamSim
 
 ## Overview
