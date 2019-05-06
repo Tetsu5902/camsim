@@ -103,19 +103,19 @@ int main(int argc, char* argv[])
 
     /* Export results */
     
-    QFile::remove("pmd-0.pfs");
-    QFile::remove("pmd-1.pfs");
-    QFile::remove("pmd-2.pfs");
-    QFile::remove("pmd-3.pfs");
-    QFile::remove("pmd-result.pfs");
-    QFile::remove("depthrange.pfs");
+    QFile::remove("pmd-0.csv");
+    QFile::remove("pmd-1.csv");
+    QFile::remove("pmd-2.csv");
+    QFile::remove("pmd-3.csv");
+    QFile::remove("pmd-result.csv");
+    QFile::remove("depthrange.csv");
     CamSim::Exporter exporter;
-    exporter.asyncExportData("pmd-0.pfs", simulator.getPMD(0));
-    exporter.asyncExportData("pmd-1.pfs", simulator.getPMD(1));
-    exporter.asyncExportData("pmd-2.pfs", simulator.getPMD(2));
-    exporter.asyncExportData("pmd-3.pfs", simulator.getPMD(3));
-    exporter.asyncExportData("pmd-result.pfs", simulator.getPMD());
-    exporter.asyncExportData("depthrange.pfs", simulator.getDepthAndRange());
+    exporter.asyncExportData("pmd-0.csv", simulator.getPMD(0));
+    exporter.asyncExportData("pmd-1.csv", simulator.getPMD(1));
+    exporter.asyncExportData("pmd-2.csv", simulator.getPMD(2));
+    exporter.asyncExportData("pmd-3.csv", simulator.getPMD(3));
+    exporter.asyncExportData("pmd-result.csv", simulator.getPMD());
+    exporter.asyncExportData("depthrange.csv", simulator.getDepthAndRange());
 
     exporter.waitForAsyncExports();
 }

@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
     light.type = CamSim::PointLight;
     light.isRelativeToCamera = true;
     light.position = QVector3D(0.0f, 0.0f, 0.0f);
+	//light.up();
     light.color = QVector3D(2.0f, 2.0f, 2.0f);
     light.attenuationConstant = 1.0f;
     light.attenuationLinear = 0.0f;
@@ -52,11 +53,12 @@ int main(int argc, char* argv[])
 
     CamSim::Material boxMaterial;
     boxMaterial.isTwoSided = true; // we want to look at the inner side of the box
-    boxMaterial.diffuse = QVector3D(0.5f, 0.5f, 0.5f);
+    boxMaterial.diffuse = QVector3D(0.8f, 0.8f, 0.8f);
     boxMaterial.specular = QVector3D(0.0f, 0.0f, 0.0f);
     int boxMaterialIndex = scene.addMaterial(boxMaterial);
     CamSim::Transformation boxTransformation;
-    boxTransformation.scaling = QVector3D(0.5f, 0.5f, 1.0f);
+    boxTransformation.scaling = QVector3D(0.5f, 0.5f, 0.5f);
+	boxTransformation.rotation = QQuaternion(1.0f,0.3f,0.0f,0.0f);
     generator.addCubeToScene(scene, boxMaterialIndex, boxTransformation);
 
     CamSim::Material torusMaterial;
@@ -66,7 +68,7 @@ int main(int argc, char* argv[])
     CamSim::Transformation torusTransformation;
     torusTransformation.scaling = QVector3D(0.3f, 0.3f, 0.3f);
     torusTransformation.translation = QVector3D(0.0f, 0.0f, -0.5f);
-    generator.addTorusToScene(scene, torusMaterialIndex, torusTransformation);
+    //generator.addTorusToScene(scene, torusMaterialIndex, torusTransformation);
 //    generator.addArmadilloToScene(scene, torusMaterialIndex, torusTransformation);
 //    generator.addBuddhaToScene(scene, torusMaterialIndex, torusTransformation);
 //    generator.addBunnyToScene(scene, torusMaterialIndex, torusTransformation);
@@ -77,6 +79,7 @@ int main(int argc, char* argv[])
 
     CamSim::Pipeline pipeline;
     pipeline.spatialSamples = QSize(3, 3); // spatial oversampling
+	pipeline.ambientLight = true;
 
     CamSim::Output output;
     output.rgb = true;

@@ -26,7 +26,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 # Required libraries
-find_package(Qt5 5.6.0 COMPONENTS Gui Concurrent)
+find_package(Qt5 COMPONENTS Gui Concurrent REQUIRED)
 
 # Optional libraries
 find_package(ASSIMP QUIET)
